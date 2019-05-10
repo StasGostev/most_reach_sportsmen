@@ -27,7 +27,6 @@ body {
   z-index: 1;
   transform: scale(1.2);
   border-radius: 12px;
-  transition: 1s;
   background-color: #eeeeee;
   min-height: 280px;
 }

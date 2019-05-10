@@ -26,13 +26,18 @@ body {
     width: 200px;
     height: 100%;
     padding: 10px;
+    transition: 1s;
 
     &:hover {
       z-index: 1;
-      animation: cellHover 1s forwards;
+      transform: scale(1.2);
+      border-radius: 12px;
+      transition: 1s;
+      background-color: #eeeeee;
       min-height: 280px;
       .photo img {
-        animation: borderRadius 0.5s linear forwards;
+        border-radius: 25%;
+        transition: all 1s;
       }
       .details .extra {
         display: flex;
@@ -42,12 +47,13 @@ body {
         line-height: 21px;
       }
     }
-    
+
     .photo {
       position: relative;
       img {
         @include circle(100%);
         margin-bottom: 8px;
+        transition: 1s;
       }
 
       .rank {
@@ -79,33 +85,5 @@ body {
 @media (max-width: 750px) {
   .people {
     grid-template-columns: repeat(2, 200px);
-  }
-}
-
-@keyframes cellHover {
-  from {
-    background-color: #eeeeee;
-    border-radius: 0;
-  }
-  to {
-    transform: scale(1.2);
-    background-color: #eeeeee;
-    border-radius: 12px;
-  }
-}
-
-@keyframes borderRadius {
-  from {
-    border-radius: 50%;
-  }
-  to {
-    border-radius: 25%;
-    max-width: 100%;
-  }
-}
-
-@keyframes unhoverImg {
-  to {
-    border-radius: 50%;
   }
 }

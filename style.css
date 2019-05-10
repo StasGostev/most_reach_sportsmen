@@ -21,14 +21,19 @@ body {
   width: 200px;
   height: 100%;
   padding: 10px;
+  transition: 1s;
 }
 .people .person:hover {
   z-index: 1;
-  animation: cellHover 1s forwards;
+  transform: scale(1.2);
+  border-radius: 12px;
+  transition: 1s;
+  background-color: #eeeeee;
   min-height: 280px;
 }
 .people .person:hover .photo img {
-  animation: borderRadius 0.5s linear forwards;
+  border-radius: 25%;
+  transition: all 1s;
 }
 .people .person:hover .details .extra {
   display: flex;
@@ -45,6 +50,7 @@ body {
   height: 100%;
   border-radius: 50%;
   margin-bottom: 8px;
+  transition: 1s;
 }
 .people .person .photo .rank {
   position: absolute;
@@ -71,31 +77,6 @@ body {
 @media (max-width: 750px) {
   .people {
     grid-template-columns: repeat(2, 200px);
-  }
-}
-@keyframes cellHover {
-  from {
-    background-color: #eeeeee;
-    border-radius: 0;
-  }
-  to {
-    transform: scale(1.2);
-    background-color: #eeeeee;
-    border-radius: 12px;
-  }
-}
-@keyframes borderRadius {
-  from {
-    border-radius: 50%;
-  }
-  to {
-    border-radius: 25%;
-    max-width: 100%;
-  }
-}
-@keyframes unhoverImg {
-  to {
-    border-radius: 50%;
   }
 }
 

@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0 auto;
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+}
+
+.people {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, auto);
+  grid-auto-rows: 235px;
+  grid-gap: 40px 10px;
+  .person {
+    box-sizing: content-box;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+
+    &:hover {
+      z-index: 1;
+      animation: cellHover 1s forwards;
+      min-height: 280px;
+      .photo img {
+        animation: borderRadius 0.5s linear forwards;
+      }
+      .details .extra {
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+    
+    .photo {
+      position: relative;
+      img {
+        @include circle(100%);
+        margin-bottom: 8px;
+      }
+
+      .rank {
+        position: absolute;
+        @include circle(32px);
+        top: 84px;
+        right: 10px;
+        background-color: #fff;
+        color: #8b0000;
+        line-height: 32px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .details {
+      .name {
+        font-size: 20px;
+        line-height: 23px;
+        color: #2f4f4f;
+      }
+      .extra {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .people {
+    grid-template-columns: repeat(2, 200px);
+  }
+}
+
+@keyframes cellHover {
+  from {
+    background-color: #eeeeee;
+    border-radius: 0;
+  }
+  to {
+    transform: scale(1.2);
+    background-color: #eeeeee;
+    border-radius: 12px;
+  }
+}
+
+@keyframes borderRadius {
+  from {
+    border-radius: 50%;
+  }
+  to {
+    border-radius: 25%;
+    max-width: 100%;
+  }
+}
+
+@keyframes unhoverImg {
+  to {
+    border-radius: 50%;
+  }
+}
